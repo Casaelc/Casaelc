@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CASA Early Learning Centre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4F46E5", secondary: "#F0ABFC" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .hero-section {
+      background-image: url('https://public.readdy.ai/ai/img_res/8c3d8013cd655b3273255c163ef114ef.jpg');
+      background-size: cover;
+      background-position: center;
+      }
+      
+    body {
+      scroll-behavior: smooth;
+      transition: scroll-behavior 0.5s ease; /* Adjust duration and       timing function as needed */
+    }
+      
+      #section2{
+        transition: linear 1s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <span class="text-3xl font-['Pacifico'] text-primary">Casa</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#section1" class="text-gray-700 hover:text-primary">Home</a>
+            <a href="#section2" class="text-gray-700 hover:text-primary">Programs</a>
+            <a href="#section3" class="text-gray-700 hover:text-primary">Activities</a>
+            <a href="#section4" class="text-gray-700 hover:text-primary">About</a>
+            <a href="#section5" class="text-gray-700 hover:text-primary">Contact</a>
+            <button
+              onclick="showContactInfo()"
+              class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+            >
+              Enroll Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero-section pt-24 pb-16" id="section1">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white bg-opacity-95 p-12 rounded-lg max-w-2xl">
+          <h1 class="text-5xl font-bold text-gray-900 mb-4">
+            CASA Early Learning Centre
+          </h1>
+          <p class="text-xl text-gray-600 mb-8">Where Learning Meets Play</p>
+          <div class="bg-primary bg-opacity-10 p-6 rounded-lg mb-8">
+            <h2 class="text-2xl font-bold text-primary mb-4">
+              Summer Camp 2025
+            </h2>
+            <p class="text-gray-700 mb-2">April 2 - May 23</p>
+            <p class="text-gray-700 mb-4">Age Group: 3 to 10 years</p>
+            <button
+              class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90"
+      onclick="showContactInfo()"
+            >
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white" id="section2">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+          Our Programs
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Playgroup</h3>
+            <p class="text-gray-600 mb-4">Ages 2-4 years</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Foundational learning through play</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Social skill development</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Creative activities</span>
+              </li>
+            </ul>
+            <button
+              onclick="showContactInfo()"
+              class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+            >
+              Learn More
+            </button>
+            <div
+              id="contactModal"
+              class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50"
+            >
+              <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+                <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Contact Information
+                  </h3>
+                  <button
+                    onclick="hideContactInfo()"
+                    class="text-gray-500 hover:text-gray-700"
+                  >
+                    <i class="ri-close-line text-2xl"></i>
+                  </button>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <i
+                      class="ri-map-pin-line text-primary text-xl mr-3 mt-1"
+                    ></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Address</p>
+                      <p class="text-gray-600">
+                        M-3, M street, Jawahar Nagar<br />Kowdiar, Trivandrum
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-phone-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Phone</p>
+                      <p class="text-gray-600">8089784081</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-mail-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Email</p>
+                      <p class="text-gray-600">
+                        casaa.elc@gmail.com<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onclick="hideContactInfo()"
+                  class="mt-6 w-full bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <script>
+              function showContactInfo() {
+                document.getElementById("contactModal").classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+              }
+              function hideContactInfo() {
+                document.getElementById("contactModal").classList.add("hidden");
+                document.body.style.overflow = "auto";
+              }
+            </script>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">LKG/UKG</h3>
+            <p class="text-gray-600 mb-4">Ages 4-6 years</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Structured learning programs</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Language development</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-primary mr-2"></i>
+                <span>Basic numeracy skills</span>
+              </li>
+            </ul>
+            <button
+              onclick="showContactInfo()"
+              class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+            >
+              Learn More
+            </button>
+            <div
+              id="contactModal"
+              class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50"
+            >
+              <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+                <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Contact Information
+                  </h3>
+                  <button
+                    onclick="hideContactInfo()"
+                    class="text-gray-500 hover:text-gray-700"
+                  >
+                    <i class="ri-close-line text-2xl"></i>
+                  </button>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <i
+                      class="ri-map-pin-line text-primary text-xl mr-3 mt-1"
+                    ></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Address</p>
+                      <p class="text-gray-600">
+                        M-3, M street, Jawahar Nagar<br />Kowdiar, Trivandrum
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-phone-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Phone</p>
+                      <p class="text-gray-600">8089784081</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-mail-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Email</p>
+                      <p class="text-gray-600">
+                        casaa.elc@gmail.com<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onclick="hideContactInfo()"
+                  class="mt-6 w-full bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <script>
+              function showContactInfo() {
+                document.getElementById("contactModal").classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+              }
+              function hideContactInfo() {
+                document.getElementById("contactModal").classList.add("hidden");
+                document.body.style.overflow = "auto";
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16" id="section3">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+          Our Activities
+        </h2>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-palette-line text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Drawing & Painting
+            </h3>
+            <p class="text-gray-600">
+              Express creativity through colors and shapes
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-run-line text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Outdoor Activities
+            </h3>
+            <p class="text-gray-600">Physical development through play</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-music-line text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Music & Dance</h3>
+            <p class="text-gray-600">Rhythm and movement exploration</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+            >
+              <i class="ri-book-open-line text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Storytelling</h3>
+            <p class="text-gray-600">Engaging narrative experiences</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white" id="section4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
+            <p class="text-gray-600 mb-6">
+              With 25 years of excellence in early childhood education, CASA
+              Early Learning Centre has been nurturing young minds and shaping
+              futures. Our experienced educators create a safe, engaging
+              environment where every child can thrive.
+            </p>
+            <p class="text-gray-600 mb-6">
+              A venture by Beena Madhav, We focus on holistic development
+              through innovative teaching methods and personalized attention.
+            </p>
+            <button
+              onclick="showContactInfo()"
+              class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+            >
+              Learn More
+            </button>
+            <div
+              id="contactModal"
+              class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50"
+            >
+              <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+                <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Contact Information
+                  </h3>
+                  <button
+                    onclick="hideContactInfo()"
+                    class="text-gray-500 hover:text-gray-700"
+                  >
+                    <i class="ri-close-line text-2xl"></i>
+                  </button>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <i
+                      class="ri-map-pin-line text-primary text-xl mr-3 mt-1"
+                    ></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Address</p>
+                      <p class="text-gray-600">
+                        M-3, M street, Jawahar Nagar<br />Kowdiar, Trivandrum
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-phone-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Phone</p>
+                      <p class="text-gray-600">8089784081</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="ri-mail-line text-primary text-xl mr-3 mt-1"></i>
+                    <div>
+                      <p class="font-medium text-gray-900">Email</p>
+                      <p class="text-gray-600">
+                        casaa.elc@gmail.com<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onclick="hideContactInfo()"
+                  class="mt-6 w-full bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <script>
+              function showContactInfo() {
+                document.getElementById("contactModal").classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+              }
+              function hideContactInfo() {
+                document.getElementById("contactModal").classList.add("hidden");
+                document.body.style.overflow = "auto";
+              }
+            </script>
+          </div>
+          <div>
+            <img
+              src="https://public.readdy.ai/ai/img_res/84f3e6167384c4c6984828117d2f3940.jpg"
+              alt="Children learning"
+              class="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white" id="section5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+          How to Contact Us
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+            >
+              <i class="ri-map-pin-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Visit Us</h3>
+            <p class="text-gray-700">M-3, M street, Jawahar Nagar</p>
+            <p class="text-gray-700">Kowdiar, Trivandrum</p>
+            <p class="text-gray-600 mt-2">Monday - Friday: 8:00 AM - 4:00 PM</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+            >
+              <i class="ri-phone-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Call Us</h3>
+            <p class="text-gray-700">Phone: 8089784081</p>
+            <p class="text-gray-600 mt-2">Available during school hours</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+            >
+              <i class="ri-mail-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Email Us</h3>
+            <p class="text-gray-700">casaa.elc@gmail.com</p>
+            <p class="text-gray-600 mt-2">We'll respond within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <span class="text-3xl font-['Pacifico'] text-white mb-4 block"
+              >CASA</span
+            >
+            <p class="text-gray-400">Where Learning Meets Play</p>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+            </ul>
+            <ul class="space-y-2">
+              <li>
+                <a href="#section1" class="text-gray-400 hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="#section2" class="text-gray-400 hover:text-white">Programs</a>
+              </li>
+              <li>
+                <a href="#section3" class="text-gray-400 hover:text-white"
+                  >Activities</a
+                >
+              </li>
+              <li>
+                <a href="#section4" class="text-gray-400 hover:text-white"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#section5" class="text-gray-400 hover:text-white">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Programs</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#section2" class="text-gray-400 hover:text-white">Playgroup</a>
+              </li>
+              <li>
+                <a href="#section2" class="text-gray-400 hover:text-white">LKG</a>
+              </li>
+              <li>
+                <a href="#section2" class="text-gray-400 hover:text-white">UKG</a>
+              </li>
+              <li>
+                <a href="#section1" class="text-gray-400 hover:text-white"
+                  >Summer Camp</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Connect With Us</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="ri-instagram-fill" ></i> 
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="ri-whatsapp-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2025 CASA Early Learning Centre. All rights reserved.A venture by Beena Madhav
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
